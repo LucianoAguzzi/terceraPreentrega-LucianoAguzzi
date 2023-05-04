@@ -1,8 +1,7 @@
-import Express  from 'express';
-
 const express = require('express');
-const productManager = require('./ProductManager');
+import ProductManager from './product.manager.js';
 const app = express();
+const productManager = new ProductManager('./products.json')
 app.get('/productos', async (req, res) => {
   try {
     const productos = await productManager.getAllProducts();
@@ -14,7 +13,7 @@ app.get('/productos', async (req, res) => {
 })
 const PORT=8080;
 
-app.listen(8080, () => {
-    console.log('Servidor iniciado en el puerto 3000');
+app.listen(PORT, () => {
+    console.log(`Servidor iniciado en el puerto, ${PORT}`);
   });
   

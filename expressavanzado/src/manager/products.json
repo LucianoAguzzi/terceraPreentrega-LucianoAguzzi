@@ -1,0 +1,11 @@
+[
+    {
+        "id":1,
+        "title":"random product",
+        "description":"best product ever",
+        "price":50,
+        "thumbnail":"none",
+        "barcode":"87986546354695",
+        "stock":30
+        }
+]

@@ -1,20 +1,10 @@
 import express from 'express';
-import ProductManager from './manager/product.manager.js';
+import ProductManager from './product.manager.js';
 const app = express();
-const express = require('express');
+const productManager = new ProductManager('./products.json')
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-const productManager = new ProductManager('./products.json');
-// app.get('/products', async (req, res) => {
-//     try {
-//         const products = await productManager.getAllProducts();
-//         res.status(200).json(products); 
-//     } catch (error){
-//         res.status(404).json ({message: error.message})
-//         console.log(error);
-//     }
-// });
 app.get('/products', (req, res) => {
     fs.readFile('./productos.json', (err, data) => {
       if (err) {
@@ -62,12 +52,6 @@ app.post('/products', async (req, res) => {
 
     app.put('/products/:id',async(req, res) => {
         try {
-            // const {name, price, stock}= req.body;
-            // const product ={
-            //     name,
-            //     price,
-            //     stock
-            // }
             const product = req.body
             const {id} = req.params
             const productFile = await productManager.getProduct(Number(id))

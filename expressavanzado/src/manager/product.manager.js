@@ -1,4 +1,3 @@
-import express from 'express';
 import fs from 'fs';
 
 app.listen(3000, () => {
@@ -9,16 +8,6 @@ app.listen(3000, () => {
     res.send(productos);
   });  
 
-//   const app = express();
-
-// app.get('/productos', (req, res) => {
-//   const productos = productManager.getAll();
-//   res.send(productos);
-// });
-
-// app.listen(3000, () => {
-//   console.log('Servidor iniciado en el puerto 3000');
-// });
 export default class ProductManager{
     constructor(path){
         this.path=path;
